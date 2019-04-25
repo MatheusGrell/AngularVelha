@@ -267,12 +267,8 @@ export class AppComponent implements OnInit {
 
   reinicia() {
     this.jogada = 9;
-    this.pincel.strokeStyle = 'lightgray';
-
     this.desenha(this.x, this.y, true);
-
     this.pincel.strokeStyle = 'black';
-
     this.arrCasa = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     this.aux = true;
     this.quadro();
