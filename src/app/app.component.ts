@@ -176,8 +176,8 @@ export class AppComponent implements OnInit {
       this.jogada--;
     } else if(reinicia && this.jogada == 9) {
       this.pincel.beginPath();
-      this.pincel.moveTo(x - .1, y - .1);
-      this.pincel.lineTo(x + .1, y + .1);
+      this.pincel.moveTo(x - .11, y - .1);
+      this.pincel.lineTo(x + 0, y + 0);
       this.pincel.stroke();
     }
   }
