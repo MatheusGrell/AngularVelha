@@ -1,5 +1,5 @@
-<canvas ref="canvas" class="canvas" width='450' height='450' (click)="clickei()"></canvas>
+<canvas ref="canvas" class="canvas" width='450' height='450' (click)="clickei($event)"></canvas>
 
 <form>
-    <input type="button" class="reinicia" value='Reiniciar' onClick="document.location.reload()" />
+    <input type="button" class="reinicia" value='Reiniciar' (click)="reinicia()" />
 </form>
