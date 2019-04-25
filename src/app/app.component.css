@@ -1,0 +1,11 @@
+input {
+    color: white;
+    font-weight: bold;
+    background-color: blue;
+    border:1px solid black;
+    border-radius: 10px;
+    padding: 6px 190px 6px 190px;
+    box-shadow: 3px 3px 0 #AAA;
+    -webkit-box-shadow: 3px 3px 0 #AAA;
+    -moz-box-shadow: 3px 3px 0 #AAA;
+  }
