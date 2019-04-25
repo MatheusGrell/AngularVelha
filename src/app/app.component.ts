@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 
 @Component({
@@ -6,8 +6,8 @@ import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  tela: HTMLCanvasElement;
+export class AppComponent {
+  @ViewChild('canvas') tela: ElementRef;
   pincel: any;
   jogada: any;
   arrCasa: any;
@@ -24,14 +24,13 @@ export class AppComponent implements OnInit {
     this.posicao(event);
   }
 
-  ngOnInit() {
+// tslint:disable-next-line: use-life-cycle-interface
+  ngAfterViewInit() {
     this.quadro();
   }
 
   quadro() {
-    this.tela = document.querySelector('canvas');
-    this.pincel = this.tela.getContext('2d');
-
+    this.pincel = this.tela.nativeElement.getContext('2d');
     this.pincel.fillStyle = 'lightgray';
     this.pincel.fillRect(0, 0, 450, 450);
     this.pincel.moveTo(150, 0);
@@ -49,8 +48,8 @@ export class AppComponent implements OnInit {
   }
 
   posicao(event) {
-    this.x = event.pageX - this.tela.offsetLeft;
-    this.y = event.pageY - this.tela.offsetTop;
+    this.x = event.pageX - this.tela.nativeElement.offsetLeft;
+    this.y = event.pageY - this.tela.nativeElement.offsetTop;
     console.log(this.arrCasa);
     if (this.aux === true) {
       if (this.x > 0 && this.x < 150 && this.y > 0 && this.y < 150 && this.arrCasa[0] === 0) {
